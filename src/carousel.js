@@ -83,6 +83,7 @@ function createCarousel(
   wrapper.style.setProperty("--dot-size", dotSize);
   wrapper.style.setProperty("--iconColor", iconColor);
 
+  //   prev/next function
   next.addEventListener("click", () => {
     count = Math.min(count + 1, imgs.length - 1);
     console.log(count);
@@ -94,6 +95,14 @@ function createCarousel(
     count = Math.max(count - 1, 0);
     updatePosition();
   });
+
+  //   dot button function
+  dots.childNodes.forEach((dot) =>
+    dot.addEventListener("click", () => {
+      count = parseInt(dot.getAttribute("data-slide"));
+      updatePosition();
+    })
+  );
 
   updatePosition();
 
