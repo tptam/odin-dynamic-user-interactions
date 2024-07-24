@@ -73,6 +73,11 @@ header {
     padding: 0.5rem;
 }
 
+.dropdown-button img {
+    height: 1em;
+    width: 1em;
+}
+
 .dropdown-content {
     position: absolute;
     min-width: min(160px, 100vw);

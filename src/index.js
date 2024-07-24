@@ -1,4 +1,4 @@
-import { setupDropdownMenu } from "./dropdown-button";
+import { setupDropdownMenus } from "./dropdown-button";
 import "./style.css";
 
-setupDropdownMenu();
+setupDropdownMenus();
