@@ -53,3 +53,30 @@ header .right {
 .dropdown-content>*:hover{
     background-color: #7dd3fc;
 }
+
+/* Minimum style for carousel */
+.carousel-wrapper * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.carousel-window {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.carousel-strip {
+    position: absolute;
+    left: 50px;
+    display: flex;
+    gap: 10px;
+}
+
+.carousel-slide {
+    background-color: black;
+    width: 300px;
+    height: 200px;
+}
