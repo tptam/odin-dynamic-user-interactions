@@ -61,10 +61,26 @@ header .right {
     box-sizing: border-box;
 }
 
+.carousel-wrapper {
+    --width: 300px;
+    --height: 200px;
+    --window-width: 400px;
+    --dot-size: 16px;
+    --gap: 10px;
+
+    width: calc(var(--window-width + 40px));
+    display: grid;
+    grid-template-columns: 20px var(--window-width) 20px;
+    grid-template-rows: var(--height) 20px;
+    grid-template-areas: "prev window next" "dots dots dots";
+    gap: var(--gap);
+}
+
 .carousel-window {
+    grid-area: window;
     position: relative;
-    width: 400px;
-    height: 200px;
+    width: var(--window-width);
+    height: var(--height);
     overflow: hidden;
 }
 
@@ -72,11 +88,43 @@ header .right {
     position: absolute;
     left: 50px;
     display: flex;
-    gap: 10px;
+    gap: var(--gap);
 }
 
 .carousel-slide {
     background-color: black;
-    width: 300px;
-    height: 200px;
+    overflow: hidden;
+    width: var(--width);
+    height: var(--height);
+}
+
+.carousel-prev, .carousel-next {
+    width: 20px;
+    border: none;
+    background-color: transparent;
+}
+
+.carousel-prev{
+    grid-area: prev;
+    width: 20px;
+}
+
+.carousel-next {
+    grid-area: next;
+    width: 20px;
+}
+
+.carousel-dots {
+    grid-area: dots;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.carousel-dot {
+    width: var(--dot-size);
+    height: var(--dot-size);
+    border: none;
+    border-radius: 50%;
+    background-color: gray;
 }

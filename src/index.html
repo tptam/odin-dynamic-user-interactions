@@ -61,9 +61,19 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-prev"></button>
-            <button class="carousel-next"></button>
-            <div class="carousel-dots"></div>
+            <button class="carousel-prev">
+                <img src="<%= require('./images/prev.svg') %>" width="20" alt="previous icon">
+            </button>
+            <button class="carousel-next">
+                <img src="<%= require('./images/next.svg') %>" width="20" alt="previous icon">
+            </button>
+                <div class="carousel-dots">
+                <button class="carousel-dot" data-slide="0"></button>
+                <button class="carousel-dot" data-slide="1"></button>
+                <button class="carousel-dot" data-slide="2"></button>
+                <button class="carousel-dot" data-slide="3"></button>
+                <button class="carousel-dot" data-slide="4"></button>
+            </div>
         </div>
     </div>
 </body>
