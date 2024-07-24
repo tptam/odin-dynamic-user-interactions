@@ -1,1 +1,1 @@
-# odin-template
+# odin-dynamic-user-interactions
