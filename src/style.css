@@ -3,11 +3,12 @@
 
     --footer-height: 2rem;
 
-    --primary-color: #14b8a6; /*Teal500*/
-    
+    --primary-color: #0d9488; /*Teal600*/
+
     --secondary-color: #f97316; /*Orange500*/
     
     --neutral-color: #0a0a0a;  /*Neutral950*/
+    --neutral-color-800: #262626;
     --neutral-color-700: #404040;
     --neutral-color-600: #525252;
     --neutral-color-500: #737373;
@@ -18,26 +19,30 @@
     --neutral-color-50: #fafafa; 
 
     --alert-color: #d0021b;
+    --highlight-color: var(--primary-color);
 
-    --text-color: var(--neutral-color-700);
-    --text-color-header: var(--neutral-color);
-    --text-color-white: var(--neutral-color-50);
-    --background-color: var(--neutral-color-200);
-    --surface-color: var(--neutral-color-50);
+    --text-color: var(--neutral-color-100);
+    --text-color-header: var(--neutral-color-50);
+    --background-color: var(--neutral-color-800);
+    --surface-color: var(--neutral-color-700);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: content-box;
+    /* border: 1px solid pink; */
 }
 
 body {
     color: var(--text-color);
+    background-color: var(--background-color);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 a {
     text-decoration: none;
+    color: var(--text-color);
 }
 
 ul {
@@ -46,4 +51,40 @@ ul {
 
 h1, h2, h3 {
     color: var(--text-color-header);
+}
+
+button {
+    color: var(--text-color-header);
+    font-size: initial;
+}
+
+header {
+    display: flex;
+}
+
+.dropdown-wrapper {
+    position: relative;
+}
+
+.dropdown-button {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+.dropdown-content {
+    position: absolute;
+    min-width: min(160px, 100vw);
+    background-color: var(--surface-color);
+}
+
+.dropdown-content a {
+    list-style: none;
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-content a:hover{
+    background-color: var(--highlight-color);
 }
