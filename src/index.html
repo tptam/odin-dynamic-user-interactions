@@ -7,22 +7,36 @@
 </head>
 <body>
     <header>
-        <div class="dropdown-wrapper">
-            <button class="dropdown-button">
-                <img src="<%= require('./images/menu.svg') %>" width=16 height=16 alt="menu icon">
-            </button>
-            <div class="dropdown-content">
-                <a href="">Menu item 1</a>
-                <a href="">Menu item 2</a>
-                <a href="">Menu item 3</a>
+        <div class="left">
+            <div class="dropdown-wrapper">
+                <button class="dropdown-button">
+                    <img src="<%= require('./images/menu.svg') %>" width=24 height=24 alt="menu icon">
+                </button>
+                <div class="dropdown-content">
+                    <a href="">Menu item 1</a>
+                    <a href="">Menu item 2</a>
+                    <a href="">Menu item 3</a>
+                </div>
+            </div>
+            <div class="dropdown-wrapper">
+                <button class="dropdown-button">Dropdown</button>
+                <div class="dropdown-content">
+                    <a href="">Menu item 1</a>
+                    <a href="">Menu item 2</a>
+                    <a href="">Menu item 3</a>
+                </div>
             </div>
         </div>
-        <div class="dropdown-wrapper">
-            <button class="dropdown-button">Dropdown</button>
-            <div class="dropdown-content">
-                <a href="">Menu item 1</a>
-                <a href="">Menu item 2</a>
-                <a href="">Menu item 3</a>
+        <div class="right">
+            <div class="dropdown-wrapper">
+                <button class="dropdown-button">
+                    <img src="<%= require('./images/dots.svg') %>" width=24 height=24 alt="three dots icon">
+                </button>
+                <div class="dropdown-content right-align">
+                    <a href="">Menu item 1</a>
+                    <a href="">Menu item 2</a>
+                    <a href="">Menu item 3</a>
+                </div>
             </div>
         </div>
     </header>
