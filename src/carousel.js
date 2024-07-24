@@ -8,6 +8,7 @@ function createCarousel(
   iconColor = "gray"
 ) {
   let count = 0;
+  let intervalId = null;
 
   //   Major parts
   const wrapper = document.createElement("div");
@@ -89,11 +90,13 @@ function createCarousel(
     console.log(count);
     console.log(strip.style);
     updatePosition();
+    updateInterval();
   });
 
   prev.addEventListener("click", () => {
     count = Math.max(count - 1, 0);
     updatePosition();
+    updateInterval();
   });
 
   //   dot button function
@@ -101,8 +104,11 @@ function createCarousel(
     dot.addEventListener("click", () => {
       count = parseInt(dot.getAttribute("data-slide"));
       updatePosition();
+      updateInterval();
     })
   );
+
+  intervalId = setInterval(showNextInfinite, 5000);
 
   updatePosition();
 
@@ -117,6 +123,16 @@ function createCarousel(
     );
     prev.disabled = count === 0;
     next.disabled = count === imgs.length - 1;
+  }
+
+  function showNextInfinite() {
+    count = (count + 1) % imgs.length;
+    updatePosition();
+  }
+
+  function updateInterval() {
+    clearInterval(intervalId);
+    intervalId = setInterval(showNextInfinite, 5000);
   }
 }
 
