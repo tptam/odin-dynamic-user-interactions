@@ -70,8 +70,10 @@ header .right {
     --iconColor: gray;
 
     --count: 0;
+    --start: 50px;
+    --diff: -310px;
     --start: calc((var(--window-width) - var(--width)) / 2);
-    --diff: calc((var(--width) + var(--gap)) * var(--count));
+    --diff: calc(-1 * (var(--width) + var(--gap)));
 
     width: calc(var(--window-width) + 40px + var(--gap) * 2);
     display: grid;
@@ -91,7 +93,7 @@ header .right {
 
 .carousel-strip {
     position: absolute;
-    left: calc(var(--start) - (var(--diff) * var(--count)));
+    left: calc(var(--start) + (var(--diff) * var(--count)));
     display: flex;
     gap: var(--gap);
 }
@@ -139,5 +141,6 @@ header .right {
 }
 
 .carousel-dot.selected {
-    transform: scale(1.5);
+    filter:brightness(1.5);
+    transform: scale(1.4);
 }

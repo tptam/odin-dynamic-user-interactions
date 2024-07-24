@@ -7,8 +7,9 @@ function createCarousel(
   dotSize = "14px",
   iconColor = "gray"
 ) {
-  const count = 0;
+  let count = 0;
 
+  //   Major parts
   const wrapper = document.createElement("div");
   const window = document.createElement("div");
   const strip = document.createElement("div");
@@ -82,12 +83,31 @@ function createCarousel(
   wrapper.style.setProperty("--dot-size", dotSize);
   wrapper.style.setProperty("--iconColor", iconColor);
 
-  updateWindowPosition();
+  next.addEventListener("click", () => {
+    count = Math.min(count + 1, imgs.length - 1);
+    console.log(count);
+    console.log(strip.style);
+    updatePosition();
+  });
+
+  prev.addEventListener("click", () => {
+    count = Math.max(count - 1, 0);
+    updatePosition();
+  });
+
+  updatePosition();
 
   return wrapper;
 
-  function updateWindowPosition() {
+  function updatePosition() {
     wrapper.style.setProperty("--count", count);
+    dots.childNodes.forEach((dot) =>
+      dot.getAttribute("data-slide") === count.toString()
+        ? dot.classList.add("selected")
+        : dot.classList.remove("selected")
+    );
+    prev.disabled = count === 0;
+    next.disabled = count === imgs.length - 1;
   }
 }
 
