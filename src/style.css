@@ -64,11 +64,16 @@ header .right {
 .carousel-wrapper {
     --width: 300px;
     --height: 200px;
-    --window-width: 400px;
+    --window-width: 350px;
     --dot-size: 16px;
     --gap: 10px;
+    --iconColor: gray;
 
-    width: calc(var(--window-width + 40px));
+    --count: 0;
+    --start: calc((var(--window-width) - var(--width)) / 2);
+    --diff: calc((var(--width) + var(--gap)) * var(--count));
+
+    width: calc(var(--window-width) + 40px + var(--gap) * 2);
     display: grid;
     grid-template-columns: 20px var(--window-width) 20px;
     grid-template-rows: var(--height) 20px;
@@ -86,7 +91,7 @@ header .right {
 
 .carousel-strip {
     position: absolute;
-    left: 50px;
+    left: calc(var(--start) - (var(--diff) * var(--count)));
     display: flex;
     gap: var(--gap);
 }
@@ -102,6 +107,10 @@ header .right {
     width: 20px;
     border: none;
     background-color: transparent;
+}
+
+.carousel-prev:disabled svg, .carousel-next:disabled svg {
+    visibility: hidden;
 }
 
 .carousel-prev{
@@ -126,5 +135,9 @@ header .right {
     height: var(--dot-size);
     border: none;
     border-radius: 50%;
-    background-color: gray;
+    background-color: var(--iconColor);
+}
+
+.carousel-dot.selected {
+    transform: scale(1.5);
 }
