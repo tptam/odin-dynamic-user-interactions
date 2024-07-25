@@ -138,8 +138,8 @@ header .right {
     width: var(--dot-size);
     height: var(--dot-size);
     border: none;
-    border-radius: 50%;
-    background-color: var(--iconColor);
+    /* border-radius: 50%; */
+    background-color: transparent;
 }
 
 .carousel-dot.selected {

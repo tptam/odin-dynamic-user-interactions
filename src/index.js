@@ -1,9 +1,17 @@
 import { setupDropdownMenus } from "./dropdown-button";
 import { createCarousel } from "./carousel";
 
+import next from "./images/chevron-right.svg";
+import prev from "./images/chevron-left.svg";
+
 import "./style.css";
 
 setupDropdownMenus();
+
+const nextSvg = new Image(20, 40);
+nextSvg.src = next;
+const prevSvg = new Image(20, 40);
+prevSvg.src = prev;
 
 const carousel = createCarousel(
   "300px",
@@ -31,7 +39,10 @@ const carousel = createCarousel(
       alt: "random dummy image",
     },
   ],
-  true
+  false,
+  null,
+  nextSvg,
+  prevSvg
 );
 
 console.log(carousel);

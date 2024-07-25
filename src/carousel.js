@@ -4,6 +4,9 @@ function createCarousel(
   windowWidth,
   imgs,
   autoRotate = false,
+  dotIcon = null,
+  nextIcon = null,
+  prevIcon = null,
   gap = "10px",
   dotSize = "14px",
   iconColor = "gray"
@@ -34,8 +37,8 @@ function createCarousel(
 
   //   SVG button icons
 
-  next.appendChild(getNextIcon(iconColor));
-  prev.appendChild(getPrevIcon(iconColor));
+  next.appendChild(nextIcon === null ? getNextIcon(iconColor) : nextIcon);
+  prev.appendChild(prevIcon === null ? getPrevIcon(iconColor) : prevIcon);
 
   //   Slides
   imgs.forEach((img) => {
@@ -51,6 +54,9 @@ function createCarousel(
   //   Dots
   for (let i = 0; i < imgs.length; i++) {
     const dot = document.createElement("button");
+    dot.appendChild(
+      dotIcon === null ? getCircleIcon(iconColor, dotSize) : dotIcon
+    );
     dot.classList.add("carousel-dot");
     dot.setAttribute("data-slide", i);
     dots.appendChild(dot);
@@ -150,7 +156,7 @@ function getPrevIcon(iconColor, width = 20) {
 function getCircleIcon(iconColor, size) {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("viewBox", "0, 0, 10, 10");
-  svg.setAttribute("width", `${size}px`);
+  svg.setAttribute("width", size);
   svg.setAttribute("fill", iconColor);
   svg.setAttribute("aria-label", "prev");
   const circle = document.createElementNS(
@@ -159,7 +165,7 @@ function getCircleIcon(iconColor, size) {
   );
   circle.setAttribute("cx", "5");
   circle.setAttribute("cy", "5");
-  circle.setAttribute("cr", "5");
+  circle.setAttribute("r", "5");
   svg.appendChild(circle);
   return svg;
 }
