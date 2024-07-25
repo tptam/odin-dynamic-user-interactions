@@ -6,11 +6,11 @@ function createCarousel(
   autoRotate = false,
   nextIcon = null,
   prevIcon = null,
-  dotSize = "14px",
+  dotSize = 14,
   iconColor = "#d4d4d4",
   selectedColor = "#525252",
   slideColor = "transparent",
-  gap = "10px"
+  gap = 10
 ) {
   let count = 0;
   let intervalId = null;
@@ -63,11 +63,11 @@ function createCarousel(
   }
 
   //   CSS variables
-  wrapper.style.setProperty("--width", width);
-  wrapper.style.setProperty("--height", height);
-  wrapper.style.setProperty("--window-width", windowWidth);
-  wrapper.style.setProperty("--gap", gap);
-  wrapper.style.setProperty("--dot-size", dotSize);
+  wrapper.style.setProperty("--width", `${width}px`);
+  wrapper.style.setProperty("--height", `${height}px`);
+  wrapper.style.setProperty("--window-width", `${windowWidth}px`);
+  wrapper.style.setProperty("--gap", `${gap}px`);
+  wrapper.style.setProperty("--dot-size", `${dotSize}px`);
   wrapper.style.setProperty("--icon-color", iconColor);
   wrapper.style.setProperty("--selected-color", selectedColor);
   wrapper.style.setProperty("--slide-color", slideColor);
@@ -136,7 +136,7 @@ function createCarousel(
 function getNextIcon(iconColor, width = 20) {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("viewBox", "0, 0, 10, 20");
-  svg.setAttribute("width", `${width}px`);
+  svg.setAttribute("width", width);
   svg.setAttribute("fill", iconColor);
   svg.setAttribute("role", "img");
   svg.setAttribute("aria-label", "next");
@@ -152,7 +152,7 @@ function getNextIcon(iconColor, width = 20) {
 function getPrevIcon(iconColor, width = 20) {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("viewBox", "0, 0, 10, 20");
-  svg.setAttribute("width", `${width}px`);
+  svg.setAttribute("width", width);
   svg.setAttribute("fill", iconColor);
   svg.setAttribute("role", "img");
   svg.setAttribute("aria-label", "previous");
