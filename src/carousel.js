@@ -9,6 +9,7 @@ function createCarousel(
   dotSize = "14px",
   iconColor = "#d4d4d4",
   selectedColor = "#525252",
+  slideColor = "transparent",
   gap = "10px"
 ) {
   let count = 0;
@@ -69,6 +70,7 @@ function createCarousel(
   wrapper.style.setProperty("--dot-size", dotSize);
   wrapper.style.setProperty("--icon-color", iconColor);
   wrapper.style.setProperty("--selected-color", selectedColor);
+  wrapper.style.setProperty("--slide-color", slideColor);
   wrapper.style.setProperty(
     "--prev-width",
     prevIcon === null ? "20px" : `${prevIcon.width}px`

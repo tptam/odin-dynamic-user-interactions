@@ -70,9 +70,10 @@ header .right {
     --prev-width: 20px;
     --next-width: 20px;
     --dot-size: 16px;
-    --gap: 10px;
     --icon-color: #d4d4d4;
     --selected-color: #525252;
+    --slide-color: transparent;
+    --gap: 10px;
 
     --count: 0;
     --start: 50px;
@@ -104,6 +105,7 @@ header .right {
 }
 
 .carousel-slide {
+    background-color: var(--slide-color);
     overflow: hidden;
     width: var(--width);
     height: var(--height);
