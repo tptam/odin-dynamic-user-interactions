@@ -120,7 +120,7 @@ header .right {
     background-color: transparent;
 }
 
-.carousel-prev:disabled svg, .carousel-next:disabled svg {
+.carousel-prev:disabled, .carousel-next:disabled {
     visibility: hidden;
 }
 

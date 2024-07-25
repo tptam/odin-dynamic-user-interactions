@@ -78,8 +78,6 @@ function createCarousel(
     nextIcon === null ? "20px" : `${nextIcon.width}px`
   );
 
-  console.log(nextIcon.width);
-
   //   prev/next function
   next.addEventListener("click", () => {
     count = Math.min(count + 1, imgs.length - 1);
