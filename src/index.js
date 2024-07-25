@@ -3,7 +3,6 @@ import { createCarousel } from "./carousel";
 
 import next from "./images/chevron-right.svg";
 import prev from "./images/chevron-left.svg";
-import fruit from "./images/fruit-watermelon.svg";
 
 import "./style.css";
 
@@ -13,8 +12,6 @@ const nextSvg = new Image(40, 80);
 nextSvg.src = next;
 const prevSvg = new Image(40, 80);
 prevSvg.src = prev;
-const dotSvg = new Image(30, 30);
-dotSvg.src = fruit;
 
 const carousel = createCarousel(
   "300px",
@@ -22,11 +19,11 @@ const carousel = createCarousel(
   "400px",
   [
     {
-      src: "https://picsum.photos/300/200?random=1",
+      src: "https://picsum.photos/200/200?random=1",
       alt: "random dummy image",
     },
     {
-      src: "https://picsum.photos/300/200?random=2",
+      src: "https://picsum.photos/200/500?random=2",
       alt: "random dummy image",
     },
     {
