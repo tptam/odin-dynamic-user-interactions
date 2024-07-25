@@ -34,6 +34,8 @@ header .right {
     position: absolute;
     min-width: min(160px, 100vw);
     border: 1px solid #ebebeb;
+    background: white;
+    z-index: calc(infinity);
 }
 
 .dropdown-content.right-align {
