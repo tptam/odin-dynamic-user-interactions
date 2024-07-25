@@ -3,6 +3,7 @@ function createCarousel(
   height,
   windowWidth,
   imgs,
+  autoRotate = false,
   gap = "10px",
   dotSize = "14px",
   iconColor = "gray"
@@ -108,9 +109,8 @@ function createCarousel(
     })
   );
 
-  intervalId = setInterval(showNextInfinite, 5000);
-
   updatePosition();
+  updateInterval();
 
   return wrapper;
 
@@ -131,8 +131,10 @@ function createCarousel(
   }
 
   function updateInterval() {
-    clearInterval(intervalId);
-    intervalId = setInterval(showNextInfinite, 5000);
+    if (autoRotate) {
+      clearInterval(intervalId);
+      intervalId = setInterval(showNextInfinite, 5000);
+    }
   }
 }
 
