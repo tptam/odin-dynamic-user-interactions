@@ -33,30 +33,9 @@ function createCarousel(
   window.appendChild(strip);
 
   //   SVG button icons
-  const svgNext = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svgNext.setAttribute("viewBox", "0, 0, 10, 20");
-  svgNext.setAttribute("width", "20px");
-  svgNext.setAttribute("fill", iconColor);
-  svgNext.setAttribute("aria-label", "next");
-  const polyNext = document.createElementNS(
-    "http://www.w3.org/2000/svg",
-    "polygon"
-  );
-  polyNext.setAttribute("points", "0,0 0,20 10,10");
-  svgNext.appendChild(polyNext);
 
-  next.appendChild(svgNext);
-
-  const svgPrev = svgNext.cloneNode(false);
-  svgPrev.setAttribute("aria-label", "prev");
-  const polyPrev = document.createElementNS(
-    "http://www.w3.org/2000/svg",
-    "polygon"
-  );
-  polyPrev.setAttribute("points", "10,0 10,20 0,10");
-  svgPrev.appendChild(polyPrev);
-
-  prev.appendChild(svgPrev);
+  next.appendChild(getNextIcon(iconColor));
+  prev.appendChild(getPrevIcon(iconColor));
 
   //   Slides
   imgs.forEach((img) => {
@@ -136,6 +115,53 @@ function createCarousel(
       intervalId = setInterval(showNextInfinite, 5000);
     }
   }
+}
+
+function getNextIcon(iconColor, width = 20) {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0, 0, 10, 20");
+  svg.setAttribute("width", `${width}px`);
+  svg.setAttribute("fill", iconColor);
+  svg.setAttribute("aria-label", "next");
+  const poly = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "polygon"
+  );
+  poly.setAttribute("points", "0,0 0,20 10,10");
+  svg.appendChild(poly);
+  return svg;
+}
+
+function getPrevIcon(iconColor, width = 20) {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0, 0, 10, 20");
+  svg.setAttribute("width", `${width}px`);
+  svg.setAttribute("fill", iconColor);
+  svg.setAttribute("aria-label", "prev");
+  const poly = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "polygon"
+  );
+  poly.setAttribute("points", "10,0 10,20 0,10");
+  svg.appendChild(poly);
+  return svg;
+}
+
+function getCircleIcon(iconColor, size) {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0, 0, 10, 10");
+  svg.setAttribute("width", `${size}px`);
+  svg.setAttribute("fill", iconColor);
+  svg.setAttribute("aria-label", "prev");
+  const circle = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "circle"
+  );
+  circle.setAttribute("cx", "5");
+  circle.setAttribute("cy", "5");
+  circle.setAttribute("cr", "5");
+  svg.appendChild(circle);
+  return svg;
 }
 
 export { createCarousel };
