@@ -4,12 +4,12 @@ function createCarousel(
   windowWidth,
   imgs,
   autoRotate = false,
-  dotIcon = null,
   nextIcon = null,
   prevIcon = null,
-  gap = "10px",
   dotSize = "14px",
-  iconColor = "gray"
+  iconColor = "#d4d4d4",
+  selectedColor = "#525252",
+  gap = "10px"
 ) {
   let count = 0;
   let intervalId = null;
@@ -54,9 +54,8 @@ function createCarousel(
   //   Dots
   for (let i = 0; i < imgs.length; i++) {
     const dot = document.createElement("button");
-    dot.appendChild(
-      dotIcon === null ? getCircleIcon(iconColor, dotSize) : dotIcon
-    );
+    const alt = `show slide ${i}`;
+    dot.appendChild(getCircleIcon(iconColor, dotSize, alt));
     dot.classList.add("carousel-dot");
     dot.setAttribute("data-slide", i);
     dots.appendChild(dot);
@@ -68,7 +67,18 @@ function createCarousel(
   wrapper.style.setProperty("--window-width", windowWidth);
   wrapper.style.setProperty("--gap", gap);
   wrapper.style.setProperty("--dot-size", dotSize);
-  wrapper.style.setProperty("--iconColor", iconColor);
+  wrapper.style.setProperty("--icon-color", iconColor);
+  wrapper.style.setProperty("--selected-color", selectedColor);
+  wrapper.style.setProperty(
+    "--prev-width",
+    prevIcon === null ? "20px" : `${prevIcon.width}px`
+  );
+  wrapper.style.setProperty(
+    "--next-width",
+    nextIcon === null ? "20px" : `${nextIcon.width}px`
+  );
+
+  console.log(nextIcon.width);
 
   //   prev/next function
   next.addEventListener("click", () => {
@@ -128,6 +138,7 @@ function getNextIcon(iconColor, width = 20) {
   svg.setAttribute("viewBox", "0, 0, 10, 20");
   svg.setAttribute("width", `${width}px`);
   svg.setAttribute("fill", iconColor);
+  svg.setAttribute("role", "img");
   svg.setAttribute("aria-label", "next");
   const poly = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -143,7 +154,8 @@ function getPrevIcon(iconColor, width = 20) {
   svg.setAttribute("viewBox", "0, 0, 10, 20");
   svg.setAttribute("width", `${width}px`);
   svg.setAttribute("fill", iconColor);
-  svg.setAttribute("aria-label", "prev");
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", "previous");
   const poly = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "polygon"
@@ -153,12 +165,13 @@ function getPrevIcon(iconColor, width = 20) {
   return svg;
 }
 
-function getCircleIcon(iconColor, size) {
+function getCircleIcon(iconColor, size, alt) {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("viewBox", "0, 0, 10, 10");
   svg.setAttribute("width", size);
   svg.setAttribute("fill", iconColor);
-  svg.setAttribute("aria-label", "prev");
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", alt);
   const circle = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "circle"

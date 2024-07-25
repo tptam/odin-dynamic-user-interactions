@@ -67,9 +67,12 @@ header .right {
     --width: 300px;
     --height: 200px;
     --window-width: 350px;
+    --prev-width: 20px;
+    --next-width: 20px;
     --dot-size: 16px;
     --gap: 10px;
-    --iconColor: gray;
+    --icon-color: #d4d4d4;
+    --selected-color: #525252;
 
     --count: 0;
     --start: 50px;
@@ -77,10 +80,10 @@ header .right {
     --start: calc((var(--window-width) - var(--width)) / 2);
     --diff: calc(-1 * (var(--width) + var(--gap)));
 
-    width: calc(var(--window-width) + 40px + var(--gap) * 2);
+    width: calc(var(--window-width) + var(--prev-width)  + var(--next-width) + var(--gap) * 2);
     display: grid;
-    grid-template-columns: 20px var(--window-width) 20px;
-    grid-template-rows: var(--height) 20px;
+    grid-template-columns: var(--prev-width) var(--window-width) var(--next-width);
+    grid-template-rows: var(--height) var(--dot-size);
     grid-template-areas: "prev window next" "dots dots dots";
     gap: var(--gap);
 }
@@ -108,7 +111,6 @@ header .right {
 }
 
 .carousel-prev, .carousel-next {
-    width: 20px;
     border: none;
     background-color: transparent;
 }
@@ -119,12 +121,12 @@ header .right {
 
 .carousel-prev{
     grid-area: prev;
-    width: 20px;
+    width: var(--prev-width);
 }
 
 .carousel-next {
     grid-area: next;
-    width: 20px;
+    width: var(--next-width);
 }
 
 .carousel-dots {
@@ -138,11 +140,9 @@ header .right {
     width: var(--dot-size);
     height: var(--dot-size);
     border: none;
-    /* border-radius: 50%; */
     background-color: transparent;
 }
 
-.carousel-dot.selected {
-    filter:brightness(1.5);
-    transform: scale(1.4);
+.carousel-dot.selected svg {
+    fill: var(--selected-color);
 }
